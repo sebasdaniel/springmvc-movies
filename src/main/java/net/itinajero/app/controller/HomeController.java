@@ -68,6 +68,7 @@ public class HomeController {
 			pelicula1.setClasificacion("B");
 			pelicula1.setGenero("Aventura");
 			pelicula1.setFechaEstreno(formatter.parse("02-05-2017"));
+			pelicula1.setImagen("estreno8.png");
 			
 			Pelicula pelicula2 = new Pelicula();
 			pelicula2.setId(2);
@@ -76,6 +77,7 @@ public class HomeController {
 			pelicula2.setClasificacion("A");
 			pelicula2.setGenero("Infantil");
 			pelicula2.setFechaEstreno(formatter.parse("20-05-2017"));
+			pelicula2.setImagen("estreno6.png");
 			
 			Pelicula pelicula3 = new Pelicula();
 			pelicula3.setId(3);
@@ -84,6 +86,7 @@ public class HomeController {
 			pelicula3.setClasificacion("B");
 			pelicula3.setGenero("Thriller");
 			pelicula3.setFechaEstreno(formatter.parse("28-05-2017"));
+			pelicula3.setImagen("estreno7.png");
 			
 			Pelicula pelicula4 = new Pelicula();
 			pelicula4.setId(4);
@@ -93,6 +96,7 @@ public class HomeController {
 			pelicula4.setGenero("Accion y Aventura");
 			pelicula4.setFechaEstreno(formatter.parse("06-06-2017"));
 			pelicula4.setEstatus("Inactiva");
+			pelicula4.setImagen("estreno4.png");
 			
 			lista.add(pelicula1);
 			lista.add(pelicula2);
