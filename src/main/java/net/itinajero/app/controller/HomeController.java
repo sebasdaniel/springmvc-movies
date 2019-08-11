@@ -61,33 +61,43 @@ public class HomeController {
 		try {
 			lista = new LinkedList<>();
 			
-			Pelicula pelicual1 = new Pelicula();
-			pelicual1.setId(1);
-			pelicual1.setTitulo("Power Rangers");
-			pelicual1.setDuracion(120);
-			pelicual1.setClasificacion("B");
-			pelicual1.setGenero("Aventura");
-			pelicual1.setFechaEstreno(formatter.parse("02-05-2017"));
+			Pelicula pelicula1 = new Pelicula();
+			pelicula1.setId(1);
+			pelicula1.setTitulo("Power Rangers");
+			pelicula1.setDuracion(120);
+			pelicula1.setClasificacion("B");
+			pelicula1.setGenero("Aventura");
+			pelicula1.setFechaEstreno(formatter.parse("02-05-2017"));
 			
-			Pelicula pelicual2 = new Pelicula();
-			pelicual2.setId(2);
-			pelicual2.setTitulo("La bella y la bestia");
-			pelicual2.setDuracion(192);
-			pelicual2.setClasificacion("A");
-			pelicual2.setGenero("Infantil");
-			pelicual2.setFechaEstreno(formatter.parse("20-05-2017"));
+			Pelicula pelicula2 = new Pelicula();
+			pelicula2.setId(2);
+			pelicula2.setTitulo("La bella y la bestia");
+			pelicula2.setDuracion(192);
+			pelicula2.setClasificacion("A");
+			pelicula2.setGenero("Infantil");
+			pelicula2.setFechaEstreno(formatter.parse("20-05-2017"));
 			
-			Pelicula pelicual3 = new Pelicula();
-			pelicual3.setId(3);
-			pelicual3.setTitulo("Contratiempo");
-			pelicual3.setDuracion(106);
-			pelicual3.setClasificacion("B");
-			pelicual3.setGenero("Thriller");
-			pelicual3.setFechaEstreno(formatter.parse("28-05-2017"));
+			Pelicula pelicula3 = new Pelicula();
+			pelicula3.setId(3);
+			pelicula3.setTitulo("Contratiempo");
+			pelicula3.setDuracion(106);
+			pelicula3.setClasificacion("B");
+			pelicula3.setGenero("Thriller");
+			pelicula3.setFechaEstreno(formatter.parse("28-05-2017"));
 			
-			lista.add(pelicual1);
-			lista.add(pelicual2);
-			lista.add(pelicual3);
+			Pelicula pelicula4 = new Pelicula();
+			pelicula4.setId(4);
+			pelicula4.setTitulo("Kong La Isla Calavera");
+			pelicula4.setDuracion(118);
+			pelicula4.setClasificacion("B");
+			pelicula4.setGenero("Accion y Aventura");
+			pelicula4.setFechaEstreno(formatter.parse("06-06-2017"));
+			pelicula4.setEstatus("Inactiva");
+			
+			lista.add(pelicula1);
+			lista.add(pelicula2);
+			lista.add(pelicula3);
+			lista.add(pelicula4);
 			
 			return lista;
 			
