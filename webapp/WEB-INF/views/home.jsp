@@ -92,7 +92,7 @@
 							<span class="label label-default">${ pelicula.genero }</span>
 						</h4>
 						<p>
-							<a class="btn btn-sm btn-primary" href="#" role="button">
+							<a class="btn btn-sm btn-primary" href="detail/${ pelicula.id }/${ fechaBusqueda }" role="button">
 								Consulta Horarios &raquo;
 							</a>
 						</p>
