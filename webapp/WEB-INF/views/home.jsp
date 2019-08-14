@@ -66,9 +66,17 @@
 				</h2>
 				<form class="form-inline" action="${ urlRoot }search" method="post">
 					<div class="form-group">
-						<label for="fecha">Fecha: </label> <select id="fecha" name="fecha" class="form-control">
+						<label for="fecha">Fecha: </label>
+						<select id="fecha" name="fecha" class="form-control">
 							<c:forEach items="${ fechas }" var="fecha">
-								<option value="${ fecha }">${ fecha }</option>
+								<c:choose>
+									<c:when test="${ fecha == fechaBusqueda }">
+										<option value="${ fecha }" selected>${ fecha }</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${ fecha }">${ fecha }</option>
+									</c:otherwise>
+								</c:choose>
 							</c:forEach>
 						</select>
 					</div>
@@ -111,8 +119,7 @@
 			<div class="row">
 				<div class="col-sm-12 blog-main">
 					<div class="blog-post">
-						<h3 class="blog-post-title">Julia Roberts protagonizará The
-							Bookseller</h3>
+						<h3 class="blog-post-title">Julia Roberts protagonizará The Bookseller</h3>
 						<p class="blog-post-meta">
 							<span class="label label-danger">Publicado: 16-06-2017</span>
 						</p>
@@ -131,7 +138,6 @@
 							Roberts tambi&eacute;n producir&aacute; la pel&iacute;cula junto
 							a Lisa Gillan y Marisa Yeres Hill.
 						</p>
-
 						<hr class="featurette-divider">
 					</div>
 
@@ -179,8 +185,7 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="${ urlPublic }/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
