@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import net.itinajero.app.model.Pelicula;
 
 @Service
-public class PeliculaServiceImpl implements IPeliculasService {
+public class PeliculasServiceImpl implements IPeliculasService {
 
 	private List<Pelicula> lista = null;
 	
 	
-	public PeliculaServiceImpl() {
+	public PeliculasServiceImpl() {
 		
 		System.out.println("Creando instancia");
 		
