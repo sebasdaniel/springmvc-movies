@@ -32,19 +32,19 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label for="titulo">Título</label>
+							<label for="titulo">T&iacute;tulo</label>
 							<input type="text" class="form-control" name="titulo" id="titulo" required="required" />
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label for="duracion">Duracion</label>
+							<label for="duracion">Duraci&oacute;n</label>
 							<input type="text" class="form-control" name="duracion" id="duracion" required="required" />
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="form-group">
-							<label for="clasificacion" class="control-label">Clasificacion</label>
+							<label for="clasificacion" class="control-label">Clasificaci&oacute;n</label>
 							<select id="clasificacion" name="clasificacion" class="form-control">
 								<option value="A">Clasificacion A</option>
 								<option value="B">Clasificacion B</option>
