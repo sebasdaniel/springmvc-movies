@@ -1,5 +1,7 @@
 package net.itinajero.app.util;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -7,7 +9,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class Utileria {
+	
 	
 	/**
 	 * Metodo que regresa una lista de Strings con las fechas siguentes,
@@ -41,6 +48,38 @@ public class Utileria {
 		}
 		
 		return nextDays;
+	}
+	
+	
+	/**
+	 * Metodo que guarda una imagen y retorna el nombre de la misma como se guarda.
+	 * 
+	 * @param multiPart    La variable de archivos recibidos en el request (en este caso imagen binaria)
+	 * @param request      Variable con informacion de la peticion
+	 * @return             El nombre de la imagen guardada
+	 */
+	public static String guardarImagen(MultipartFile multiPart, HttpServletRequest request) {
+		
+		// Obtenemos el nombre original del archivo
+		String nombreOriginal = multiPart.getOriginalFilename();
+		
+		// Obtenemos la ruta ABSOLUTA del directorio images
+		// apache-tomcat/webapps/cineapp/resources/images/
+		String rutaFinal = request.getServletContext().getRealPath("/resources/images/");
+		
+		try {
+			// Formamos el nombre del archivo para guardarlo en el disco duro
+			File imageFile = new File(rutaFinal + nombreOriginal);
+			
+			// Aqui se guarda fisicamente el archivo en el disco duro
+			multiPart.transferTo(imageFile);
+			
+			return nombreOriginal;
+			
+		} catch (IOException e) {
+			System.out.println("Error " + e.getMessage());
+			return null;
+		}
 	}
 
 }
