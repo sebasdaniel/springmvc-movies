@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import net.itinajero.app.model.Banner;
 import net.itinajero.app.model.Pelicula;
+import net.itinajero.app.service.IBannersService;
 import net.itinajero.app.service.IPeliculasService;
 import net.itinajero.app.util.Utileria;
 
@@ -21,7 +23,11 @@ import net.itinajero.app.util.Utileria;
 public class HomeController {
 	
 	@Autowired
+	private IBannersService serviceBanner;
+	
+	@Autowired
 	private IPeliculasService servicePelicula;
+	
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 	
@@ -34,10 +40,11 @@ public class HomeController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String mostrarPrincipal(Model model) {
 		
+		List<Banner> listaBanners = serviceBanner.buscarTodos();
 		List<String> listaFechas = Utileria.getNextDays(4);
-		
 		List<Pelicula> peliculas = servicePelicula.buscarTodas();
 		
+		model.addAttribute("banners", listaBanners);
 		model.addAttribute("peliculas", peliculas);
 		model.addAttribute("fechas", listaFechas);
 		model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
@@ -49,10 +56,11 @@ public class HomeController {
 	@RequestMapping(value="/search", method=RequestMethod.POST)
 	public String buscar(Model model, @RequestParam("fecha") String fecha) {
 		
+		List<Banner> listaBanners = serviceBanner.buscarTodos();
 		List<String> listaFechas = Utileria.getNextDays(4);
-		
 		List<Pelicula> peliculas = servicePelicula.buscarTodas();
 		
+		model.addAttribute("banners", listaBanners);
 		model.addAttribute("peliculas", peliculas);
 		model.addAttribute("fechas", listaFechas);
 		model.addAttribute("fechaBusqueda", fecha);
