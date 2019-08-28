@@ -60,8 +60,12 @@ public class Utileria {
 	 */
 	public static String guardarImagen(MultipartFile multiPart, HttpServletRequest request) {
 		
-		// Obtenemos el nombre original del archivo
+		// Obtenemos el nombre original del archivo y cambiamos espacios por guiones
 		String nombreOriginal = multiPart.getOriginalFilename();
+		nombreOriginal = nombreOriginal.replace(" ", "-");
+		
+		// creamos una nombre con una cadena aleatoria para que sea unico y no sobreescriba otras imagenes
+		String nombreFinal = randomAlphaNumeric(8) + nombreOriginal;
 		
 		// Obtenemos la ruta ABSOLUTA del directorio images
 		// apache-tomcat/webapps/cineapp/resources/images/
@@ -69,17 +73,38 @@ public class Utileria {
 		
 		try {
 			// Formamos el nombre del archivo para guardarlo en el disco duro
-			File imageFile = new File(rutaFinal + nombreOriginal);
+			File imageFile = new File(rutaFinal + nombreFinal);
+			System.out.println(imageFile.getAbsolutePath());
 			
 			// Aqui se guarda fisicamente el archivo en el disco duro
 			multiPart.transferTo(imageFile);
 			
-			return nombreOriginal;
+			return nombreFinal;
 			
 		} catch (IOException e) {
 			System.out.println("Error " + e.getMessage());
 			return null;
 		}
+	}
+	
+	
+	/**
+	 * Metodo para generar una cadena alfanumerica aleatoria de n caracteres.
+	 * 
+	 * @param count    El numero de caracteres que contendra la cadena aleatoria
+	 * @return         La cadena aleatoria alfanumerica
+	 */
+	public static String randomAlphaNumeric(int count) {
+		
+		String CARACTERES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		StringBuilder builder = new StringBuilder();
+		
+		while (count-- != 0) {
+			int character = (int) (Math.random() * CARACTERES.length());
+			builder.append(CARACTERES.charAt(character));
+		}
+		
+		return builder.toString();
 	}
 
 }
