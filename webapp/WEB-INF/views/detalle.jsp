@@ -13,11 +13,9 @@
 		<spring:url value="/resources" var="urlPublic" />
 		<link href="${ urlPublic }/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="${ urlPublic }/bootstrap/css/theme.css" rel="stylesheet">
-
 	</head>
 
 	<body>
-
 		<%-- se incluye navbar --%>
 		<jsp:include page="includes/menu.jsp"></jsp:include>
 
@@ -42,12 +40,12 @@
 							</div>
 							<div class="panel-body">                           
 								<p>
-									Título Original : ${ pelicula.titulo }<br>
-									Actores : ...<br>
-									Director: ...<br>
-									Clasificación: ${ pelicula.clasificacion }<br>
-									Duración: ${ pelicula.duracion } minutos<br>
-									Género: ${ pelicula.genero }<br>
+									T&iacute;tulo Original : ${ pelicula.titulo }<br>
+									Actores : ${ pelicula.detalle.actores }<br>
+									Director: ${ pelicula.detalle.director }<br>
+									Clasificaci&oacute;n: ${ pelicula.clasificacion }<br>
+									Duraci&oacute;n: ${ pelicula.duracion } minutos<br>
+									G&eacute;nero: ${ pelicula.genero }<br>
 									Fecha Estreno: ${ pelicula.fechaEstreno }
 								</p>
 							</div>
