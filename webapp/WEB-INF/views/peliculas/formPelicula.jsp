@@ -42,6 +42,7 @@
 			</spring:hasBindErrors>
 
 			<form:form action="${ urlForm }" method="post" enctype="multipart/form-data" modelAttribute="pelicula">
+			<form:hidden path="id"/>
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="form-group">
@@ -93,6 +94,7 @@
 					<div class="col-sm-3">
 						<div class="form-group">
 							<label for="imagen">Imagen</label>
+							<form:hidden path="imagen"/>
 							<input type="file" id="archivoImagen" name="archivoImagen" />
 							<p class="help-block">Imagen de la pelicula</p>
 						</div>
