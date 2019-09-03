@@ -49,11 +49,11 @@
             <div class="form-group">
                <label class="col-sm-2 control-label">Tu experiencia en el sitio</label>
                <div class="col-sm-10">
-                  <label><input type="radio" name="rating" value="1">Muy Mala</label>
-                  <label><input type="radio" name="rating" value="2">Mala</label>
-                  <label><input type="radio" name="rating" value="3">Regular</label>
-                  <label><input type="radio" name="rating" value="4">Buena</label>
-                  <label><input type="radio" name="rating" value="5">Muy Buena</label>
+                  <label><form:radiobutton path="rating" value="1" />Muy Mala</label>
+                  <label><form:radiobutton path="rating" value="2" />Mala</label>
+                  <label><form:radiobutton path="rating" value="3" />Regular</label>
+                  <label><form:radiobutton path="rating" value="4" />Buena</label>
+                  <label><form:radiobutton path="rating" value="5" />Muy Buena</label>
                </div>
             </div>
 
