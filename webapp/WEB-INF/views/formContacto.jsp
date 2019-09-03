@@ -11,6 +11,7 @@
       <title>Formulario de Contacto</title>
       
       <spring:url value="/resources" var="urlPublic"></spring:url>
+      <spring:url value="/" var="urlRoot"></spring:url>
       <link href="${ urlPublic }/bootstrap/css/bootstrap.min.css" rel="stylesheet">    
       <link href="${ urlPublic }/bootstrap/css/theme.css" rel="stylesheet">
    </head>
@@ -24,34 +25,24 @@
          <h3 class="blog-title text-center"><span class="label label-success">Contacto</span></h3><br>  
 
 		${ instanciaContacto }
-         <form:form class="form-horizontal" method="post" modelAttribute="instanciaContacto">
+         <form:form class="form-horizontal" action="${ urlRoot }contacto" method="post" modelAttribute="instanciaContacto">
             <div class="form-group">
                <label for="nombre" class="col-sm-2 control-label">Nombre</label>
                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="required">
+                  <form:input type="text" class="form-control" id="nombre" path="nombre" placeholder="Nombre" required="required" />
                </div>
             </div>
             <div class="form-group">
                <label for="email" class="col-sm-2 control-label">Email</label>
                <div class="col-sm-10">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="required">
+                  <form:input type="email" class="form-control" path="email" id="email" placeholder="Email" required="required" />
                </div>
             </div>
 
             <div class="form-group">
                <label for="genero" class="col-sm-2 control-label">Géneros Favoritos</label>
                <div class="col-sm-10">
-                  <select id="genero" name="generos" multiple="multiple" class="form-control">
-                     <option value="Accion">Accion</option>
-                     <option value="Aventura">Aventura </option>
-                     <option value="Clasicas">Clasicas</option>                  
-                     <option value="Comedia Romantica">Comedia Romantica</option>                  
-                     <option value="Drama">Drama</option>                  
-                     <option value="Terror">Terror</option>                  
-                     <option value="Infantil">Infantil</option>                  
-                     <option value="Accion y Aventura">Accion y Aventura</option>                  
-                     <option value="Romantica">Romantica</option>                  
-                  </select> 
+                  <form:select id="genero" path="generos" multiple="multiple" class="form-control" items="${ generos }" />
                </div>
             </div>
 
