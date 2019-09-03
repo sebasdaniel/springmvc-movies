@@ -67,7 +67,7 @@
             <div class="form-group">
                <label class="col-sm-2 control-label">Comentarios:</label>
                <div class="col-sm-10">
-                  <textarea class="form-control" name="comentarios" id="comentarios" rows="5"></textarea>
+                  <form:textarea class="form-control" path="comentarios" id="comentarios" rows="5"></form:textarea>
                </div>
             </div>
 
