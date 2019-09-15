@@ -16,5 +16,7 @@ public interface NoticiasRepository extends JpaRepository<Noticia, Integer> {
 	List<Noticia> findByFecha(Date fecha);
 	
 	List<Noticia> findByEstatusAndFecha(String status, Date fecha);
+	
+	List<Noticia> findByEstatusOrFecha(String status, Date fecha);
 
 }
