@@ -7,9 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name="Paliculas")
+@Table(name="Peliculas")
 public class Pelicula {
 
 	@Id
@@ -22,6 +23,8 @@ public class Pelicula {
 	private String imagen = "cinema.png"; // imagen por default
 	private Date fechaEstreno;
 	private String estatus = "Activa";
+	
+	@Transient // ignora el atributo
 	private Detalle detalle;
 	
 	public int getId() {
