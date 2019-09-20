@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -24,7 +26,9 @@ public class Pelicula {
 	private Date fechaEstreno;
 	private String estatus = "Activa";
 	
-	@Transient // ignora el atributo
+	//@Transient // ignora el atributo
+	@OneToOne
+	@JoinColumn(name = "idDetalle")
 	private Detalle detalle;
 	
 	public int getId() {
