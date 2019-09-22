@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.itinajero.app.model.Pelicula;
+import net.itinajero.app.service.IDetallesService;
 import net.itinajero.app.service.IPeliculasService;
 import net.itinajero.app.util.Utileria;
 
@@ -34,6 +35,9 @@ public class PeliculasController {
 	
 	@Autowired
 	private IPeliculasService servicePelicula;
+	
+	@Autowired
+	private IDetallesService serviceDetalle;
 	
 	
 	@GetMapping("/index")
@@ -69,7 +73,11 @@ public class PeliculasController {
 			pelicula.setImagen(nombreImage);
 		}
 		
-		System.out.println("Guardando: " + pelicula);
+		System.out.println("Detalle antes: " + pelicula.getDetalle());
+		
+		serviceDetalle.insertar(pelicula.getDetalle());
+		
+		System.out.println("Detalle despues: " + pelicula.getDetalle());
 		
 		servicePelicula.insertar(pelicula);
 		

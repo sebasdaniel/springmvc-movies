@@ -1,5 +1,6 @@
 package net.itinajero.app.service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,7 @@ public class PeliculasServiceJpa implements IPeliculasService {
 
 	@Override
 	public void insertar(Pelicula pelicula) {
-		// TODO Auto-generated method stub
-		
+		peliculasRepo.save(pelicula);
 	}
 
 	@Override
@@ -34,8 +34,21 @@ public class PeliculasServiceJpa implements IPeliculasService {
 
 	@Override
 	public List<String> buscarGeneros() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<String> generos = new LinkedList<>();
+		
+		generos.add("Accion");
+		generos.add("Aventura");
+		generos.add("Clasicas");
+		generos.add("Comedia Romantica");
+		generos.add("Drama");
+		generos.add("Terror");
+		generos.add("Infantil");
+		generos.add("Accion y Aventura");
+		generos.add("Romantica");
+		generos.add("Ciencia Ficcion");
+		
+		return generos;
 	}
 
 }
