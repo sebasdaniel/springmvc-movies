@@ -22,8 +22,8 @@ public class PeliculasServiceJpa implements IPeliculasService {
 
 	@Override
 	public List<Pelicula> buscarTodas() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Pelicula> lista = peliculasRepo.findAll();
+		return lista;
 	}
 
 	@Override
