@@ -18,6 +18,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -85,6 +86,18 @@ public class PeliculasController {
 		
 		//return "peliculas/formPelicula";
 		return "redirect:/peliculas/index";
+	}
+	
+	
+	@GetMapping("/edit/{id}")
+	public String editar(Model model, @PathVariable("id") int idPelicula) {
+		
+		Pelicula pelicula = servicePelicula.buscarPorId(idPelicula);
+		
+		model.addAttribute("pelicula", pelicula);
+		model.addAttribute("generos", servicePelicula.buscarGeneros());
+		
+		return "peliculas/formPelicula";
 	}
 	
 	
