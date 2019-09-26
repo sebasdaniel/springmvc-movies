@@ -99,6 +99,17 @@ public class PeliculasController {
 	}
 	
 	
+	@GetMapping("/delete/{id}")
+	public String eliminar(@PathVariable("id") int idPelicula, RedirectAttributes attributes) {
+		
+		servicePelicula.eliminar(idPelicula);
+		
+		attributes.addFlashAttribute("message", "La pelicula fue eliminada!");
+		
+		return "redirect:/peliculas/index";
+	}
+	
+	
 	@ModelAttribute("generos")
 	public List<String> getGeneros() {
 		return servicePelicula.buscarGeneros();

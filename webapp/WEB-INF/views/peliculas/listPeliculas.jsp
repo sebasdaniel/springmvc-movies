@@ -14,6 +14,7 @@
     <spring:url value="/resources" var="urlPublic"></spring:url>
     <spring:url value="/peliculas/create" var="urlCreate"></spring:url>
     <spring:url value="/peliculas/edit" var="urlEdit"></spring:url>
+    <spring:url value="/peliculas/delete" var="urlDelete"></spring:url>
     <link href="${ urlPublic }/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ urlPublic }/bootstrap/css/theme.css" rel="stylesheet">
   </head>
@@ -65,7 +66,7 @@
 	                    <a href="${ urlEdit }/${ pelicula.id }" class="btn btn-success btn-sm" role="button" title="Edit" >
 	                    	<span class="glyphicon glyphicon-pencil"></span>
                     	</a>
-	                    <a href="#" class="btn btn-danger btn-sm" role="button" title="Eliminar" >
+	                    <a href="${ urlDelete }/${ pelicula.id }" class="btn btn-danger btn-sm" role="button" title="Eliminar" >
 	                    	<span class="glyphicon glyphicon-trash"></span>
                     	</a>
 	                </td>

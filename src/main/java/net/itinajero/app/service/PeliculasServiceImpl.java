@@ -119,4 +119,11 @@ public class PeliculasServiceImpl implements IPeliculasService {
 		return generos;
 	}
 
+
+	@Override
+	public void eliminar(int idPelicula) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
