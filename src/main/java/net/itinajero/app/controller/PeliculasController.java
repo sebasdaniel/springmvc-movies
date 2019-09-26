@@ -55,7 +55,6 @@ public class PeliculasController {
 	@GetMapping("/create")
 	public String crear(@ModelAttribute Pelicula pelicula, Model model) {
 		
-		model.addAttribute("generos", servicePelicula.buscarGeneros());
 		return "peliculas/formPelicula";
 	}
 	
@@ -95,9 +94,14 @@ public class PeliculasController {
 		Pelicula pelicula = servicePelicula.buscarPorId(idPelicula);
 		
 		model.addAttribute("pelicula", pelicula);
-		model.addAttribute("generos", servicePelicula.buscarGeneros());
 		
 		return "peliculas/formPelicula";
+	}
+	
+	
+	@ModelAttribute("generos")
+	public List<String> getGeneros() {
+		return servicePelicula.buscarGeneros();
 	}
 	
 	
