@@ -12,6 +12,7 @@
     <title>Listado de Peliculas</title>
     
     <spring:url value="/resources" var="urlPublic"></spring:url>
+    <spring:url value="/peliculas" var="urlPeliculas"></spring:url>
     <spring:url value="/peliculas/create" var="urlCreate"></spring:url>
     <spring:url value="/peliculas/edit" var="urlEdit"></spring:url>
     <spring:url value="/peliculas/delete" var="urlDelete"></spring:url>
@@ -43,7 +44,7 @@
                 <th>Estatus</th>
                 <th>Opciones</th>
             </tr>
-        	<c:forEach items="${ peliculas }" var="pelicula">
+        	<c:forEach items="${ peliculas.content }" var="pelicula">
         		<tr>
 	                <td>${ pelicula.titulo }</td>
 	                <td>${ pelicula.genero }</td>
@@ -73,7 +74,17 @@
 	            </tr>
         	</c:forEach>
         </table>
-      </div>
+		<nav aria-label="">
+			<ul class="pager">
+				<li>
+					<a href="${ urlPeliculas }/indexPaginate?page=${peliculas.number - 1 }">Anterior</a>
+				</li>
+				<li>
+					<a href="${ urlPeliculas }/indexPaginate?page=${peliculas.number + 1 }">Siguiente</a>
+				</li>
+			</ul>
+		</nav>
+	  </div>
           
       <hr class="featurette-divider">
 
