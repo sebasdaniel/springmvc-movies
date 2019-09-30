@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
+
 
 @Entity
 @Table(name = "Horarios")
@@ -17,9 +20,12 @@ public class Horario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	//@Temporal(TemporalType.DATE) -- En caso que no funcione agregar 'useSSL=false&amp;serverTimezone=America/Bogota' en root-context.xml
 	private Date fecha;
+	
 	private String hora; // HH:mm
-	private String sala; 
+	private String sala;
 	private double precio;
 	
 	@ManyToOne
