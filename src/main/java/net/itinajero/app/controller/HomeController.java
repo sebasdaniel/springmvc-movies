@@ -1,5 +1,6 @@
 package net.itinajero.app.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
@@ -18,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import net.itinajero.app.model.Banner;
 import net.itinajero.app.model.Horario;
+import net.itinajero.app.model.Noticia;
 import net.itinajero.app.model.Pelicula;
 import net.itinajero.app.service.IBannersService;
 import net.itinajero.app.service.IHorariosService;
+import net.itinajero.app.service.INoticiasService;
 import net.itinajero.app.service.IPeliculasService;
 import net.itinajero.app.util.Utileria;
 
@@ -36,6 +39,9 @@ public class HomeController {
 	@Autowired
 	private IHorariosService serviceHorario;
 	
+	@Autowired
+	private INoticiasService serviceNoticia;
+	
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 	
@@ -45,16 +51,25 @@ public class HomeController {
 	}
 	
 	
+	/**
+	 * Muestra la pagina principal actualmente.
+	 * 
+	 * @param model    El modelo que almacena atributos en forma de mapa y los recibe la vista.
+	 * @return         El nombre de la vista.
+	 * @throws ParseException 
+	 */
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String mostrarPrincipal(Model model) {
+	public String mostrarPrincipal(Model model) throws ParseException {
 		
 		List<Banner> listaBanners = serviceBanner.buscarTodos();
 		List<String> listaFechas = Utileria.getNextDays(4);
-		List<Pelicula> peliculas = servicePelicula.buscarTodas();
+		List<Pelicula> peliculas = servicePelicula.buscarPorFechaDeHorario(dateFormat.parse(dateFormat.format(new Date())));
+		List<Noticia> ultimasNoticias = serviceNoticia.buscarUltimasActivas();
 		
 		model.addAttribute("banners", listaBanners);
 		model.addAttribute("peliculas", peliculas);
 		model.addAttribute("fechas", listaFechas);
+		model.addAttribute("noticias", ultimasNoticias);
 		model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
 		
 		return "home";

@@ -1,5 +1,6 @@
 package net.itinajero.app.service;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -68,6 +69,13 @@ public class PeliculasServiceJpa implements IPeliculasService {
 	@Override
 	public Page<Pelicula> buscarTodas(Pageable pageable) {
 		return peliculasRepo.findAll(pageable);
+	}
+
+	
+	@Override
+	public List<Pelicula> buscarPorFechaDeHorario(Date fecha) {
+		
+		return peliculasRepo.buscarTodasPorFechaHorario(fecha);
 	}
 
 }

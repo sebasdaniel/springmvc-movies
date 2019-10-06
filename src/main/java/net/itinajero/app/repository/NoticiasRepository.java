@@ -11,6 +11,8 @@ import net.itinajero.app.model.Noticia;
 @Repository
 public interface NoticiasRepository extends JpaRepository<Noticia, Integer> {
 	
+	List<Noticia> findTop3ByEstatusOrderByFechaDesc(String status);
+	
 	List<Noticia> findByEstatus(String status);
 	
 	List<Noticia> findByFecha(Date fecha);
