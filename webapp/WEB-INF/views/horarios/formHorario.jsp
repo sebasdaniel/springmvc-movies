@@ -38,6 +38,7 @@
 			</spring:hasBindErrors>
 
 			<form:form action="${ urlRoot }horarios/save" method="post" modelAttribute="horario">
+				<form:hidden path="id"/>
 				<div class="row">         
 					<div class="col-sm-3">
 						<div class="form-group">
