@@ -2,6 +2,8 @@ package net.itinajero.app.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import net.itinajero.app.model.Noticia;
@@ -19,6 +21,24 @@ public class NoticiasServiceImpl implements INoticiasService {
 	public List<Noticia> buscarUltimasActivas() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Page<Noticia> buscarTodasPorPagina(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Noticia buscarPorId(int idNoticia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void eliminar(int idNoticia) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
