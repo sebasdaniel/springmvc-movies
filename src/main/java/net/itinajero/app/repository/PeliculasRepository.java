@@ -15,4 +15,5 @@ public interface PeliculasRepository extends JpaRepository<Pelicula, Integer> {
 
 	@Query("select h.pelicula from Horario h where h.pelicula.estatus='Activa' and h.fecha=:fecha group by h.pelicula")
 	List<Pelicula> buscarTodasPorFechaHorario(@Param("fecha") Date fecha);
+	
 }

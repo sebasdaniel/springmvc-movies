@@ -19,5 +19,10 @@ public class HorariosServiceJpa implements IHorariosService {
 	public List<Horario> buscarPorIdPelicula(int idPelicula, Date fecha) {
 		return horariosRepo.findByPelicula_IdAndFechaOrderByHora(idPelicula, fecha);
 	}
+	
+	@Override
+	public List<Horario> buscarPorIdPeliculaActiva(int idPelicula, Date fecha) {
+		return horariosRepo.findByPelicula_IdAndPelicula_EstatusAndFechaOrderByHora(idPelicula, "Activa", fecha);
+	}
 
 }

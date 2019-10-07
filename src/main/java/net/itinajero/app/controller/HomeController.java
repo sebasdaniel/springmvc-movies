@@ -92,10 +92,22 @@ public class HomeController {
 	}
 	
 	
+	/**
+	 * Busca peliculas por id y fecha.
+	 * 
+	 * @param model         EL modelo que almacena los datos enviados a la vista.
+	 * @param idPelicula    El id de la pelicula.
+	 * @param fecha         La fecha en que se proyecta la pelicula.
+	 * @return              El nombre de la vista.
+	 */
 	@RequestMapping(value="/detail/{id}/{fecha}", method=RequestMethod.GET)
 	public String mostrarDetalle(Model model, @PathVariable("id") int idPelicula, @PathVariable("fecha") Date fecha) {
 		
-		List<Horario> horarios = serviceHorario.buscarPorIdPelicula(idPelicula, fecha);
+		List<Horario> horarios = serviceHorario.buscarPorIdPeliculaActiva(idPelicula, fecha);
+		
+		if (horarios.size() == 0) {
+			return "error/404";
+		}
 		
 		model.addAttribute("horarios", horarios);
 		model.addAttribute("fechaBusqueda", dateFormat.format(fecha));

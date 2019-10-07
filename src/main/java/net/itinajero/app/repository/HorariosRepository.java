@@ -12,4 +12,6 @@ import net.itinajero.app.model.Horario;
 public interface HorariosRepository extends JpaRepository<Horario, Integer> {
 
 	List<Horario> findByPelicula_IdAndFechaOrderByHora(int idPelicula, Date fecha);
+	
+	List<Horario> findByPelicula_IdAndPelicula_EstatusAndFechaOrderByHora(int idPelicula, String estatus, Date fecha);
 }
