@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +27,7 @@ public class BannersController {
 
 	@Autowired
 	private IBannersService serviceBanner;
+	
 	
 	/**
 	 * Metodo para mostrar el listado de banners.
@@ -49,7 +52,18 @@ public class BannersController {
 	 * @return    El nombre de la vista a renderizar
 	 */
 	@GetMapping("create")
-	public String crear() {
+	public String crear(@ModelAttribute Banner banner) {
+		return "banners/formBanner";
+	}
+	
+	
+	@GetMapping("edit/{id}")
+	public String editar(@PathVariable("id") int idBanner, Model model) {
+		
+		Banner banner = serviceBanner.buscarPorId(idBanner);
+		
+		model.addAttribute("banner", banner);
+		
 		return "banners/formBanner";
 	}
 	
@@ -80,4 +94,17 @@ public class BannersController {
 		
 		return "redirect:/banners/index";
 	}
+	
+	
+	@GetMapping("delete/{id}")
+	public String eliminar(@PathVariable("id") int idBanner, RedirectAttributes attributes) {
+		
+		// se elimina el banner
+		serviceBanner.eliminar(idBanner);
+		
+		attributes.addFlashAttribute("message", "El banner fue eliminado!");
+		
+		return "redirect:/banners/index";
+	}
+	
 }

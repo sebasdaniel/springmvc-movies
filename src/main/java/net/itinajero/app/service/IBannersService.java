@@ -6,5 +6,10 @@ import net.itinajero.app.model.Banner;
 public interface IBannersService {
 
 	void insertar(Banner banner);
+	
 	List<Banner> buscarTodos();
+	
+	Banner buscarPorId(int idBanner);
+
+	void eliminar(int idBanner);
 }

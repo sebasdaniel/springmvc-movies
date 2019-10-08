@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import net.itinajero.app.model.Banner;
 
-@Service
+//@Service
 public class BannersServiceImpl implements IBannersService {
 
 	private List<Banner> lista = null;
@@ -62,6 +62,20 @@ public class BannersServiceImpl implements IBannersService {
 	@Override
 	public List<Banner> buscarTodos() {
 		return lista;
+	}
+
+
+	@Override
+	public Banner buscarPorId(int idBanner) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void eliminar(int idBanner) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
