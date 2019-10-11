@@ -20,7 +20,7 @@
 				<li><a href="${ urlRoot }noticias/index?page=0">Noticias</a></li>
 				<li><a href="${ urlRoot }banners/index">Banners</a></li>
 				<li><a href="${ urlRoot }about">Acerca</a></li>
-				<li><a href="#">Login</a></li>
+				<li><a href="${ urlRoot }admin/logout">Salir</a></li>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->
