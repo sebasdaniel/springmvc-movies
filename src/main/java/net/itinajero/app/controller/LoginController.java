@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class LoginController {
+	
+	
+	@GetMapping("index")
+	public String mostrarBienvenida() {
+		return "admin";
+	}
 
 	
 	@GetMapping("logout")

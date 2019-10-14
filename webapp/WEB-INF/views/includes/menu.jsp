@@ -16,7 +16,7 @@
 				<a class="navbar-brand" href="${ urlRoot }">My CineSite</a>
 			</sec:authorize>
 			<sec:authorize access="hasAnyAuthority('EDITOR', 'GERENTE')">
-				<a class="navbar-brand" href="${ urlRoot }">My CineSite | Administraci&oacute;n</a>
+				<a class="navbar-brand" href="${ urlRoot }admin/index">My CineSite | Administraci&oacute;n</a>
 			</sec:authorize>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
