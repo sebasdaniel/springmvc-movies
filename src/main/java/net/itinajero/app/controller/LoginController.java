@@ -19,6 +19,12 @@ public class LoginController {
 		
 		logoutHandler.logout(request, null, null);
 		
-		return "redirect:/login";
+		return "redirect:/admin/formLogin";
+	}
+	
+	
+	@GetMapping("formLogin")
+	public String mostrarLogin() {
+		return "formLogin";
 	}
 }
