@@ -19,10 +19,19 @@
 		<form-login login-page="/admin/formLogin" default-target-url="/admin/index" />
 	</http>
 	
-	<!-- Autenticacion desde una base de datos -->
-	<authentication-manager>
+	<!-- Autenticacion desde una base de datos por defecto -->
+	<!-- <authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource" />
+		</authentication-provider>
+	</authentication-manager> -->
+	
+	<!-- Autenticacion desde una base de datos por personalizada -->
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select cuenta, pwd, activo from Usuarios where cuenta = ?"
+				authorities-by-username-query="select cuenta, perfil from Perfiles where cuenta = ?" />
 		</authentication-provider>
 	</authentication-manager>
 	
